@@ -12,3 +12,7 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     return false;
 }
 #endif
+
+#ifdef KEYBOARD_splitkb_aurora_corne_rev1
+#    include "oled/corne_oled.c"
+#endif

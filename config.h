@@ -2,8 +2,8 @@
 
 #include "lang/keymap_us_international.h"
 
-#ifdef CAPS_WORD_ENABLE                    // CAPS_WORD settings
-#undef CAPS_WORD_IDLE_TIMEOUT
+#ifdef CAPS_WORD_ENABLE // CAPS_WORD settings
+#    undef CAPS_WORD_IDLE_TIMEOUT
 #    define BOTH_SHIFTS_TURNS_ON_CAPS_WORD // Use dedicate key instead on OSL
 #    define CAPS_WORD_IDLE_TIMEOUT 3000
 #endif
@@ -14,14 +14,14 @@
 #define IGNORE_MOD_TAP_INTERRUPT // Prevent normal rollover on alphas from accidentally triggering mods.
 #define PERMISSIVE_HOLD
 
-#ifdef AUTO_SHIFT_ENABLED // Autoshift 
-#define AUTO_SHIFT_TIMEOUT TAPPING_TERM
-#define AUTO_SHIFT_NO_SETUP
-#define RETRO_SHIFT 300
-#define AUTO_SHIFT_REPEAT
+#ifdef AUTO_SHIFT_ENABLED // Autoshift
+#    define AUTO_SHIFT_TIMEOUT TAPPING_TERM
+#    define AUTO_SHIFT_NO_SETUP
+#    define RETRO_SHIFT 300
+#    define AUTO_SHIFT_REPEAT
 /* #    define AUTO_SHIFT_MODIFIERS */
 /* #define NO_AUTO_SHIFT_ALPHA */
-#endif 
+#endif
 
 #ifdef MOUSEKEY_ENABLE // Mouse key speed and acceleration.
 #    undef MOUSEKEY_DELAY
@@ -38,10 +38,14 @@
 
 #ifdef OLED_ENABLE
 #    define OLED_TIMEOUT 60000
-#undef WPM_SAMPLE_SECONDS
+#    undef WPM_SAMPLE_SECONDS
 #    define WPM_SAMPLE_SECONDS 15
 #    define WPM_LAUNCH_CONTROL
 #    define SPLIT_WPM_ENABLE
+#    ifdef KEYBOARD_splitkb_aurora_corne_rev1
+#        undef OLED_FONT_H
+#        define OLED_FONT_H "users/pipshag/oled/corne_font.c"
+#    endif
 #endif
 
 #ifdef RGB_MATRIX_ENABLE

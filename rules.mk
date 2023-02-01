@@ -29,15 +29,11 @@ AUTO_SHIFT_ENABLE = yes		# Enable automatic shifted characters
 CAPS_WORD_ENABLE = yes      # Enable shift+shift for caps word
 EXTRAKEY_ENABLE = yes       # Audio control and System control
 
-VPATH += $(USER_PATH)/oled $(USER_PATH)/rgb
-
 ifeq ($(strip $(KEYBOARD)), splitkb/aurora/corne/rev1)
 	RGB_MATRIX_ENABLE = yes
 	MOUSEKEY_ENABLE = yes       # Mouse keys
 	OLED_ENABLE = yes
 	WPM_ENABLE = yes
-	SRC += corne_oled.c
-	SRC += rgb.c
 endif
 
 SRC += pipshag.c 				# Include code
