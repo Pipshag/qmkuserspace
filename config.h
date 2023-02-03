@@ -12,7 +12,7 @@
 #undef TAPPING_TERM
 #define TAPPING_TERM 175
 #define IGNORE_MOD_TAP_INTERRUPT // Prevent normal rollover on alphas from accidentally triggering mods.
-#define PERMISSIVE_HOLD
+/* #define PERMISSIVE_HOLD */
 
 #ifdef AUTO_SHIFT_ENABLED // Autoshift
 #    define AUTO_SHIFT_TIMEOUT TAPPING_TERM
