@@ -33,11 +33,10 @@ ifeq ($(strip $(KEYBOARD)), splitkb/aurora/corne/rev1)
 	RGB_MATRIX_ENABLE = yes
 	MOUSEKEY_ENABLE = yes       # Mouse keys
 	WPM_ENABLE = yes
-	AUTO_SHIFT_ENABLE = yes
+	# AUTO_SHIFT_ENABLE = yes
 
 	OLED_ENABLE = yes
     SRC += oled/corne_oled.c
-
 endif
 
 SRC += pipshag.c 				# Include code
