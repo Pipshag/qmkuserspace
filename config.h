@@ -1,7 +1,5 @@
 #pragma once
 
-#include "lang/keymap_us_international.h"
-
 #ifdef CAPS_WORD_ENABLE // CAPS_WORD settings
 #    undef CAPS_WORD_IDLE_TIMEOUT
 #    define BOTH_SHIFTS_TURNS_ON_CAPS_WORD // Use dedicate key instead on OSL
@@ -20,7 +18,7 @@
 #    define AUTO_SHIFT_REPEAT
 #    define NO_AUTO_SHIFT_ALPHA
 /* #    define AUTO_SHIFT_MODIFIERS */
-/* #    define RETRO_SHIFT 300 */
+#    define RETRO_SHIFT 300
 #endif
 
 #ifdef MOUSEKEY_ENABLE // Mouse key speed and acceleration.
@@ -33,7 +31,7 @@
 #    undef MOUSEKEY_MAX_SPEED
 #    define MOUSEKEY_MAX_SPEED 6
 #    undef MOUSEKEY_TIME_TO_MAX
-#    define MOUSEKEY_TIME_TO_MAX 96
+#    define MOUSEKEY_TIME_TO_MAX 64
 #endif
 
 #ifdef OLED_ENABLE
@@ -42,10 +40,6 @@
 #    define WPM_SAMPLE_SECONDS 15
 #    define WPM_LAUNCH_CONTROL
 #    define SPLIT_WPM_ENABLE
-#    ifdef KEYBOARD_splitkb_aurora_corne_rev1
-#        undef OLED_FONT_H
-#        define OLED_FONT_H "users/pipshag/oled/corne_font.c"
-#    endif
 #endif
 
 #ifdef RGB_MATRIX_ENABLE
