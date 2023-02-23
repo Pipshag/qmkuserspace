@@ -13,12 +13,12 @@
                                  // accidentally triggering mods.
 
 #ifdef AUTO_SHIFT_ENABLED // Autoshift
-#    define AUTO_SHIFT_TIMEOUT TAPPING_TERM
-#    define AUTO_SHIFT_NO_SETUP
-#    define AUTO_SHIFT_REPEAT
 #    define NO_AUTO_SHIFT_ALPHA
+/* #    define AUTO_SHIFT_REPEAT */
+#    define AUTO_SHIFT_TIMEOUT 175
+/* #    define AUTO_SHIFT_NO_SETUP */
 /* #    define AUTO_SHIFT_MODIFIERS */
-#    define RETRO_SHIFT 300
+/* #    define RETRO_SHIFT 500 */
 #endif
 
 #ifdef MOUSEKEY_ENABLE // Mouse key speed and acceleration.
@@ -51,5 +51,4 @@
 #    define RGB_MATRIX_VAL_STEP 8
 #    define RGB_MATRIX_SPD_STEP 10
 #    define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR
-#    define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
 #endif

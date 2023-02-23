@@ -181,7 +181,7 @@ bool oled_task_user(void) {
     isCapsWord  = is_caps_word_on();
     modifiers   = get_mods() | get_oneshot_mods();
 
-    if (!is_keyboard_master()) {
+    if (is_keyboard_master()) {
         // Render master layout
         render_current_layer();
         render_space();
