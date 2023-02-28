@@ -8,18 +8,18 @@
 
 // Settings for home row mods
 #undef TAPPING_TERM
-#define TAPPING_TERM 175
+#define TAPPING_TERM 150
 #define IGNORE_MOD_TAP_INTERRUPT // Prevent normal rollover on alphas from
                                  // accidentally triggering mods.
 
-#ifdef AUTO_SHIFT_ENABLED // Autoshift
-#    define NO_AUTO_SHIFT_ALPHA
-/* #    define AUTO_SHIFT_REPEAT */
-#    define AUTO_SHIFT_TIMEOUT 175
-/* #    define AUTO_SHIFT_NO_SETUP */
+/* #ifdef AUTO_SHIFT_ENABLED // Autoshift */
+/* #    define NO_AUTO_SHIFT_ALPHA */
+#define AUTO_SHIFT_REPEAT
+#define AUTO_SHIFT_TIMEOUT TAPPING_TERM
+#define AUTO_SHIFT_NO_SETUP
 /* #    define AUTO_SHIFT_MODIFIERS */
-/* #    define RETRO_SHIFT 500 */
-#endif
+#define RETRO_SHIFT 250
+/* #endif */
 
 #ifdef MOUSEKEY_ENABLE // Mouse key speed and acceleration.
 #    undef MOUSEKEY_DELAY
@@ -46,9 +46,11 @@
 #    define RGB_DISABLE_WHEN_USB_SUSPENDED
 #    define RGB_MATRIX_LED_PROCESS_LIMIT (RGB_MATRIX_LED_COUNT + 4) / 5
 #    define RGB_MATRIX_LED_FLUSH_LIMIT 16
-#    define RGB_MATRIX_HUE_STEP 8
-#    define RGB_MATRIX_SAT_STEP 8
-#    define RGB_MATRIX_VAL_STEP 8
+#    define RGB_MATRIX_HUE_STEP 4
+#    define RGB_MATRIX_SAT_STEP 4
+#    define RGB_MATRIX_VAL_STEP 4
 #    define RGB_MATRIX_SPD_STEP 10
+#    define RGB_MATRIX_KEYPRESSES
+#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_NEXUS
 #    define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR
 #endif
