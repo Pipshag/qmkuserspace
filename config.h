@@ -13,25 +13,25 @@
                                  // accidentally triggering mods.
 
 /* #ifdef AUTO_SHIFT_ENABLED // Autoshift */
-/* #    define NO_AUTO_SHIFT_ALPHA */
-#define AUTO_SHIFT_REPEAT
+#define NO_AUTO_SHIFT_ALPHA
+/* #define AUTO_SHIFT_REPEAT */
 #define AUTO_SHIFT_TIMEOUT TAPPING_TERM
 #define AUTO_SHIFT_NO_SETUP
 /* #    define AUTO_SHIFT_MODIFIERS */
-#define RETRO_SHIFT 250
+/* #define RETRO_SHIFT 250 */
 /* #endif */
 
 #ifdef MOUSEKEY_ENABLE // Mouse key speed and acceleration.
 #    undef MOUSEKEY_DELAY
-#    define MOUSEKEY_DELAY 0
+#    define MOUSEKEY_DELAY 10
 #    undef MOUSEKEY_INTERVAL
-#    define MOUSEKEY_INTERVAL 16
+#    define MOUSEKEY_INTERVAL 10
 #    undef MOUSEKEY_WHEEL_DELAY
 #    define MOUSEKEY_WHEEL_DELAY 0
 #    undef MOUSEKEY_MAX_SPEED
 #    define MOUSEKEY_MAX_SPEED 6
 #    undef MOUSEKEY_TIME_TO_MAX
-#    define MOUSEKEY_TIME_TO_MAX 64
+#    define MOUSEKEY_TIME_TO_MAX 40
 #endif
 
 #ifdef OLED_ENABLE
