@@ -24,19 +24,25 @@ SPACE_CADET_ENABLE = no
 # Enable common
 LTO_ENABLE = yes
 WAIT_FOR_USB = yes
-BOOTMAGIC_ENABLE= no
+BOOTMAGIC_ENABLE= yes
 AUTO_SHIFT_ENABLE = no		# Enable automatic shifted characters
 CAPS_WORD_ENABLE = yes      # Enable shift+shift for caps word
 EXTRAKEY_ENABLE = yes       # Audio control and System control
 
 ifeq ($(strip $(KEYBOARD)), splitkb/aurora/corne/rev1)
-	RGB_MATRIX_ENABLE = yes
+	SPLIT_KEYBOARD = yes
+
+	RGB_MATRIX_ENABLE =  yes
+	RGBLIGHT_ENABLE = no
+	RGB_MATRIX_CUSTOM_USER = no
+
 	MOUSEKEY_ENABLE = yes       # Mouse keys
 	WPM_ENABLE = yes
-	AUTO_SHIFT_ENABLE = yes
+	AUTO_SHIFT_ENABLE = no
 
 	OLED_ENABLE = yes
     SRC += oled/corne_oled.c
 endif
 
 SRC += pipshag.c 				# Include code
+SRC += rgb/rgb.c
