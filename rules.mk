@@ -1,4 +1,4 @@
-# Disable unused features
+#Disable unused features
 VIA_ENABLE = no
 WPM_ENABLE = no
 NKRO_ENABLE = no
@@ -21,7 +21,7 @@ VELOCIKEY_ENABLE = no
 SWAP_HANDS_ENABLE = no
 SPACE_CADET_ENABLE = no
 
-# Enable common
+#Enable common
 LTO_ENABLE = yes
 WAIT_FOR_USB = yes
 BOOTMAGIC_ENABLE= yes
