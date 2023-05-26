@@ -41,8 +41,8 @@ ifeq ($(strip $(KEYBOARD)), splitkb/aurora/corne/rev1)
 	RGB_MATRIX_CUSTOM_USER = no
 
 	MOUSEKEY_ENABLE = yes       # Mouse keys
-	WPM_ENABLE = yes
-	AUTO_SHIFT_ENABLE = no
+	# WPM_ENABLE = no
+	AUTO_SHIFT_ENABLE = yes
 
 	OLED_ENABLE = yes
     SRC += oled/corne_oled.c
