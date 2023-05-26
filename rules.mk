@@ -1,3 +1,7 @@
+BOOTLOADER = qmk-hid
+BOOTLOADER_SIZE = 512
+MCU = atmega32u4
+
 #Disable unused features
 VIA_ENABLE = no
 WPM_ENABLE = no
@@ -24,7 +28,7 @@ SPACE_CADET_ENABLE = no
 #Enable common
 LTO_ENABLE = yes
 WAIT_FOR_USB = yes
-BOOTMAGIC_ENABLE= yes
+BOOTMAGIC_ENABLE= no
 AUTO_SHIFT_ENABLE = no		# Enable automatic shifted characters
 CAPS_WORD_ENABLE = yes      # Enable shift+shift for caps word
 EXTRAKEY_ENABLE = yes       # Audio control and System control
