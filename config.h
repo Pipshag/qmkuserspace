@@ -4,26 +4,25 @@
 #define SPLIT_LED_STATE_ENABLE
 #define SPLIT_LAYER_STATE_ENABLE
 
-#ifdef CAPS_WORD_ENABLE // CAPS_WORD settings
+#ifdef CAPS_WORD_ENABLE
 #    undef CAPS_WORD_IDLE_TIMEOUT
-#    define BOTH_SHIFTS_TURNS_ON_CAPS_WORD // Use dedicate key instead on OSL
+#    define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD // Tap to activate
 #    define CAPS_WORD_IDLE_TIMEOUT 5000
 #endif
 
 // Settings for home row mods
 #undef TAPPING_TERM
-#define TAPPING_TERM 150
-#define IGNORE_MOD_TAP_INTERRUPT // Prevent normal rollover on alphas from
-                                 // accidentally triggering mods.
+#define TAPPING_TERM 120
+#define IGNORE_MOD_TAP_INTERRUPT // Prevent normal rollover
 
-/* #ifdef AUTO_SHIFT_ENABLED // Autoshift */
-/* #define NO_AUTO_SHIFT_ALPHA */
-/* #define AUTO_SHIFT_REPEAT */
-/* #define AUTO_SHIFT_TIMEOUT TAPPING_TERM */
-/* #define AUTO_SHIFT_NO_SETUP */
-/* #    define AUTO_SHIFT_MODIFIERS */
+#ifdef AUTO_SHIFT_ENABLED // Autoshift
+// #define NO_AUTO_SHIFT_ALPHA
+# define AUTO_SHIFT_REPEAT
+# define AUTO_SHIFT_TIMEOUT TAPPING_TERM
+# define AUTO_SHIFT_NO_SETUP
+#    define AUTO_SHIFT_MODIFIERS
 /* #define RETRO_SHIFT 250 */
-/* #endif */
+#endif
 
 #ifdef MOUSEKEY_ENABLE // Mouse key speed and acceleration.
 #    undef MOUSEKEY_DELAY

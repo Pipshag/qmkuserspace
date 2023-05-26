@@ -4,7 +4,7 @@ MCU = atmega32u4
 
 #Disable unused features
 VIA_ENABLE = no
-WPM_ENABLE = no
+# WPM_ENABLE = no
 NKRO_ENABLE = no
 AUDIO_ENABLE = no
 MAGIC_ENABLE = no
@@ -29,24 +29,25 @@ SPACE_CADET_ENABLE = no
 LTO_ENABLE = yes
 WAIT_FOR_USB = yes
 BOOTMAGIC_ENABLE= no
-AUTO_SHIFT_ENABLE = no		# Enable automatic shifted characters
+# AUTO_SHIFT_ENABLE = no		# Enable automatic shifted characters
 CAPS_WORD_ENABLE = yes      # Enable shift+shift for caps word
 EXTRAKEY_ENABLE = yes       # Audio control and System control
 
-ifeq ($(strip $(KEYBOARD)), splitkb/aurora/corne/rev1)
+# ifeq ($(strip $(KEYBOARD)), splitkb/aurora/corne/rev1)
 	SPLIT_KEYBOARD = yes
 
 	RGB_MATRIX_ENABLE =  yes
 	RGBLIGHT_ENABLE = no
 	RGB_MATRIX_CUSTOM_USER = no
 
-	MOUSEKEY_ENABLE = yes       # Mouse keys
-	# WPM_ENABLE = no
+	MOUSEKEY_ENABLE = no
+	WPM_ENABLE = no
 	AUTO_SHIFT_ENABLE = yes
 
 	OLED_ENABLE = yes
-    SRC += oled/corne_oled.c
-endif
 
-SRC += pipshag.c 				# Include code
-SRC += rgb/rgb.c
+	INTROSPECTION_KEYMAP_C = pipshag.c 				# Include code
+	SRC += oneshot/oneshot.c
+	SRC += rgb/rgb.c
+    SRC += oled/corne_oled.c
+# endif
