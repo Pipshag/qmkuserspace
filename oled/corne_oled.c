@@ -13,7 +13,7 @@ uint8_t  modifiers     = 0;
 bool isCapsWord = false;
 
 // Helpers
-static void render_space(void) {
+static void render_empty(void) {
     oled_write_ln_P(PSTR(""), false);
 }
 // Layers
@@ -35,13 +35,10 @@ static void render_current_layer(void) {
             oled_write_P(PSTR("**SYM"), false);
             break;
         case 4:
-            oled_write_P(PSTR("**FUN"), false);
-            break;
-        case 5:
             oled_write_P(PSTR("**MSE"), false);
             break;
-        case 6:
-            oled_write_P(PSTR("**MED"), false);
+        case 5:
+            oled_write_P(PSTR("**GAM"), false);
             break;
         default:
             oled_write_P(PSTR("**000"), false);
@@ -98,17 +95,15 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 }
 
 bool oled_task_user(void) {
-    // current_wpm = get_current_wpm();
     isCapsWord = is_caps_word_on();
-    modifiers  = get_mods() | get_oneshot_mods();
+    modifiers  = get_mods();
 
     if (is_keyboard_master()) {
         // Render master layout
         render_current_layer();
-        render_space();
+        render_empty();
         render_modifiers();
-        render_space();
-        // render_wpm();
+        render_empty();
         render_luna(0, 13);
     } else {
         // Render secondary layout
