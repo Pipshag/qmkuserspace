@@ -2,6 +2,7 @@
 // Mod tap ZMK-like functionality
 // https://github.com/filterpaper/qmk_userspace
 
+#include "config.h"
 #include QMK_KEYBOARD_H
 #include "oled/corne_oled.c"
 #include "rgb/rgb.c"
@@ -51,19 +52,48 @@ enum layers {
 /* Keymap start */
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[_CMK] = LAYOUT_split_3x6_3(
-    KC_NO, KC_Q, KC_W, KC_F, KC_P, KC_G,        KC_J, KC_L, KC_U, KC_Y, KC_QUOT, KC_NO,
-    KC_NO, LGUI_T(KC_A),LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_D,             KC_H, RSFT_T(KC_N), RCTL_T(KC_E), RALT_T(KC_I), RGUI_T(KC_O), KC_NO,
-    KC_NO, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_K, KC_M, TH_UM_ACOMM, TH_UM_AECOMM, TH_UM_OCOMM, KC_NO, LT(_MSE,KC_ESC), LT(_NAV,KC_SPC), OSM(MOD_LSFT), KC_ENT, LT(_NUM,KC_BSPC), LT(_SYM,KC_DEL)),
 
-    [_NAV] = LAYOUT_split_3x6_3(KC_NO, LSFT(KC_TAB), KC_TAB, PREV_TAB, NEXT_TAB, SCRNSHT, KC_PGUP, KC_H, KC_J, KC_K, KC_L, KC_NO, KC_NO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO, KC_PGDN, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_NO, KC_NO, KC_UNDO, KC_CUT, KC_COPY, KC_PSTE, M_SPST, KC_HOME, KC_NO, KC_NO, KC_NO, KC_END, KC_NO, KC_NO, KC_NO, KC_NO, KC_ENT, BSPC_WRD, DEL_WRD),
+    [_CMK] = LAYOUT_split_3x6_3(
+        KC_NO, KC_Q, KC_W, KC_F, KC_P, KC_G,                                            KC_J, KC_L, KC_U, KC_Y, KC_QUOT, KC_NO,
+        KC_NO, LGUI_T(KC_A),LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_D,             KC_H, RSFT_T(KC_N), RCTL_T(KC_E), RALT_T(KC_I), RGUI_T(KC_O), KC_NO,
+        KC_NO, KC_Z, KC_X, KC_C, KC_V, KC_B,                                            KC_K, KC_M, TH_UM_ACOMM, TH_UM_AECOMM, TH_UM_OCOMM, KC_NO,
+                                LT(_MSE,KC_ESC), LT(_NAV,KC_SPC), OSM(MOD_LSFT),        KC_ENT, LT(_NUM,KC_BSPC), LT(_SYM,KC_DEL)
+    ),
 
-	[_NUM] = LAYOUT_split_3x6_3(KC_NO, QK_BOOT, KC_7, KC_8, KC_9, KC_VOLU, KC_MNXT, KC_NO, RGB_SAI, RGB_SPI, RGB_MOD, KC_NO, KC_NO, KC_NO, KC_4, KC_5, KC_6, KC_VOLD, KC_MPLY, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_NO, KC_NO, AS_TOGG, KC_1, KC_2, KC_3, KC_DOT, KC_MPRV, CW_TOGG, RGB_HUI, RGB_VAI, RGB_TOG, KC_NO, KC_EQL, KC_0, KC_MINS, KC_NO, KC_NO, KC_NO),
-	[_SYM] = LAYOUT_split_3x6_3(KC_NO, KC_PERC, KC_CIRC, KC_DLR, US_EUR, TH_CLNS, KC_NO, KC_LCBR, KC_RCBR, KC_AT, KC_HASH, KC_NO, KC_NO, KC_SLSH, KC_ASTR, KC_MINS, KC_PLUS, KC_PIPE, KC_NO, KC_LPRN, KC_RPRN, KC_LT, KC_GT, KC_NO, KC_NO, KC_BSLS, KC_AMPR, KC_EXLM, KC_EQL, KC_UNDS, KC_NO, KC_LBRC, KC_RBRC, KC_TILD, KC_GRV, KC_NO, KC_ESC, KC_SPC, KC_TAB, KC_NO, KC_NO, KC_NO),
+    [_NAV] = LAYOUT_split_3x6_3(
+        KC_NO, LSFT(KC_TAB), KC_TAB, PREV_TAB, NEXT_TAB, SCRNSHT,                       KC_PGUP, KC_H, KC_J, KC_K, KC_L, KC_NO,
+        KC_NO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,                               KC_PGDN, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_NO,
+        KC_NO, KC_UNDO, KC_CUT, KC_COPY, KC_PSTE, M_SPST,                               KC_HOME, KC_NO, KC_NO, KC_NO, KC_END, KC_NO,
+                                KC_NO, KC_NO, KC_NO,                                    KC_ENT, BSPC_WRD, DEL_WRD
+    ),
 
-	[_MSE] = LAYOUT_split_3x6_3(KC_NO, KC_F12, KC_F7, KC_F8, KC_F9, KC_NO, KC_WH_U, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_F4, KC_F5, KC_F6, KC_NO, KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_NO, KC_NO, TG(5), KC_F1, KC_F2, KC_F3, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BTN2, KC_BTN1, KC_BTN3),
+	[_NUM] = LAYOUT_split_3x6_3(
+        KC_NO, QK_BOOT, KC_7, KC_8, KC_9, KC_VOLU,                                      KC_MNXT, KC_NO, RGB_SAI, RGB_SPI, RGB_MOD, KC_NO,
+        KC_NO, KC_NO, KC_4, KC_5, KC_6, KC_VOLD,                                        KC_MPLY, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_NO, KC_NO,
+        AS_TOGG, KC_1, KC_2, KC_3, KC_DOT,                                              KC_MPRV, CW_TOGG, RGB_HUI, RGB_VAI, RGB_TOG, KC_NO,
+                       KC_EQL, KC_0, KC_MINS,                                           KC_NO, KC_NO, KC_NO
+    ),
 
-	[_GAM] = LAYOUT_split_3x6_3(KC_NO, KC_Q, KC_W, KC_F, KC_P, KC_G, KC_J, KC_L, KC_U, KC_Y, KC_QUOT, KC_NO, KC_NO, KC_A, KC_R, KC_S, KC_T, KC_D, KC_H, KC_N, KC_E, KC_I, KC_O, KC_NO, KC_NO, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_K, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_NO, LT(4,KC_ESC), LT(1,KC_SPC), KC_LSFT, KC_ENT, LT(2,KC_BSPC), TG(5))
+	[_SYM] = LAYOUT_split_3x6_3(
+        KC_NO, KC_PERC, KC_CIRC, KC_DLR, US_EUR, TH_CLNS,                               KC_NO, KC_LCBR, KC_RCBR, KC_AT, KC_HASH, KC_NO,
+        KC_NO, KC_SLSH, KC_ASTR, KC_MINS, KC_PLUS, KC_PIPE,                             KC_NO, KC_LPRN, KC_RPRN, KC_LT, KC_GT, KC_NO,
+        KC_NO, KC_BSLS, KC_AMPR, KC_EXLM, KC_EQL, KC_UNDS,                              KC_NO, KC_LBRC, KC_RBRC, KC_TILD, KC_GRV, KC_NO,
+                                 KC_ESC, KC_SPC, KC_TAB,                                KC_NO, KC_NO, KC_NO
+    ),
+
+	[_MSE] = LAYOUT_split_3x6_3(
+        KC_NO, KC_F12, KC_F7, KC_F8, KC_F9, KC_NO,                                      KC_WH_U, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_NO, KC_NO, KC_F4, KC_F5, KC_F6, KC_NO,                                       KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_NO,
+        KC_NO, TG(5), KC_F1, KC_F2, KC_F3, KC_NO,                                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+                             KC_NO, KC_NO, KC_NO,                                       KC_BTN2, KC_BTN1, KC_BTN3
+    ),
+
+	[_GAM] = LAYOUT_split_3x6_3(
+        KC_NO, KC_Q, KC_W, KC_F, KC_P, KC_G,                                            KC_J, KC_L, KC_U, KC_Y, KC_QUOT, KC_NO,
+        KC_NO, KC_A, KC_R, KC_S, KC_T, KC_D,                                            KC_H, KC_N, KC_E, KC_I, KC_O, KC_NO,
+        KC_NO, KC_Z, KC_X, KC_C, KC_V, KC_B,                                            KC_K, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_NO,
+                           LT(4,KC_ESC), LT(1,KC_SPC), KC_LSFT,                         KC_ENT, LT(2,KC_BSPC), TG(5)
+    )
 };
 // clang-format on
 
@@ -85,7 +115,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define IS_BILATERAL_TAP(r, n) ((r->event.key.row == 1 && 4 <= n.event.key.row && n.event.key.row <= 6) || (r->event.key.row == 5 && 0 <= n.event.key.row && n.event.key.row <= 2))
 
 // For contextual mod-taps
-#if defined(PERMISSIVE_HOLD_PER_KEY) || defined(HOLD_ON_OTHER_KEY_PRESS_PER_KEY)
 static uint16_t    next_keycode;
 static keyrecord_t next_record;
 
@@ -97,36 +126,36 @@ bool pre_process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
-#endif
 
-#ifdef PERMISSIVE_HOLD_PER_KEY
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     // Hold Shift with a nested bilateral tap
     return IS_BILATERAL_TAP(record, next_record) && IS_MOD_TAP_SHIFT(keycode);
 }
-#endif
 
-#ifdef TAPPING_TERM_PER_KEY
 static fast_timer_t tap_timer = 0;
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    // Increase tapping term for the home row mod-tap while typing
-    return (IS_HOMEROW(record) && IS_TYPING()
-#    ifndef PERMISSIVE_HOLD_PER_KEY
-            && !IS_MOD_TAP_SHIFT(keycode)
-#    endif
-                )
-               ? TAPPING_TERM * 2
-               : TAPPING_TERM;
+    switch (keycode) {
+        case OSM(MOD_LSFT):
+            return TAPPING_TERM * 2;
+        case TH_UM_ACOMM:
+            return QUICK_TAP_TERM;
+        case TH_UM_AECOMM:
+            return QUICK_TAP_TERM;
+        case TH_UM_OCOMM:
+            return QUICK_TAP_TERM;
+        default:
+            // Increase tapping term for the home row mod-tap while typing
+            return IS_HOMEROW(record) && !IS_MOD_TAP_SHIFT(keycode) && IS_TYPING() ? TAPPING_TERM * 2 : TAPPING_TERM;
+    }
 }
-#endif
+
 /* Home row mods logic end */
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
-#ifdef TAPPING_TERM_PER_KEY
         tap_timer = timer_read_fast();
-#endif
+
         switch (keycode) {
             case TH_CLNS:
                 return process_tap_hold(Z_CLNS, record);
@@ -152,37 +181,12 @@ static inline bool process_tap_hold(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-/* void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) { */
-/*     switch (keycode) { */
-/*         case RALT(KC_Q): */
-/*             register_code16((!shifted) ? RALT(KC_Q) : RSFT(RALT(KC_Q))); */
-/*             break; */
-/*         case RALT(KC_P): */
-/*             register_code16((!shifted) ? RALT(KC_P) : RSFT(RALT(KC_P))); */
-/*             break; */
-/*         case RALT(KC_W): */
-/*             register_code16((!shifted) ? RALT(KC_W) : RSFT(RALT(KC_W))); */
-/*             break; */
-/*         default: */
-/*             if (shifted) { */
-/*                 add_weak_mods(MOD_BIT(KC_LSFT)); */
-/*             } */
-/*             register_code16((IS_RETRO(keycode)) ? keycode & 0xFF : keycode); */
-/*     } */
-/* } */
-/**/
-/* void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record) { */
-/*     switch (keycode) { */
-/*         case RALT(KC_Q): */
-/*             unregister_code16((!shifted) ? RALT(KC_Q) : RSFT(RALT(KC_Q))); */
-/*             break; */
-/*         case RALT(KC_P): */
-/*             unregister_code16((!shifted) ? RALT(KC_P) : RSFT(RALT(KC_P))); */
-/*             break; */
-/*         case RALT(KC_W): */
-/*             unregister_code16((!shifted) ? RALT(KC_W) : RSFT(RALT(KC_W))); */
-/*             break; */
-/*         default: */
-/*             unregister_code16((IS_RETRO(keycode)) ? keycode & 0xFF : keycode); */
-/*     } */
-/* } */
+// Custom tapping terms
+// uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+// switch (keycode) {
+//     case OSM(MOD_LSFT):
+//         return TAPPING_TERM + 150;
+//     default:
+//         return TAPPING_TERM;
+// }
+// }
